@@ -30,6 +30,8 @@ app.get("/fruits/new", (req, res) => {
 
 // Delete - Delete /fruits/:fruitId - delete a specific fruit from the DB
 
+
+
 // Update - PUT /fruits/:fruitId - update a specific fruit using req.body
 
 // Create - POST /fruits - use the req.body to create a new fruit
@@ -49,6 +51,15 @@ app.post("/fruits", async (req, res) => {
 // Edit - GET /fruits/:fruitId - render a populated form to edit the fruit
 
 // Show - GET /fruit/:fruitId - render a specific fruit from the DB
+app.get("/fruits/:fruitId", async (req, res) => {
+  const fruit = await Fruit.findOne({ _id: req.params.fruitId });
+  res.render("fruits/show.ejs", { fruit });
+});
+
+// route to catch any undefined urls (404)
+app.get("/*splat", (req, res) => {
+  res.render("404.ejs", { url: req.url });
+});
 
 app.listen(3000, () => {
   console.log("Listening for fruits on port 3000");

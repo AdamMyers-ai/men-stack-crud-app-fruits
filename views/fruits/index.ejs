@@ -6,11 +6,12 @@
     <title>All Fruits</title>
   </head>
   <body>
-    <%- include("../partials/navbar.ejs") %>
     <h1>All Fruits</h1>
     <ul>
       <% allFruits.forEach(fruit => { %>
-      <li><%= fruit.name %></li>
+      <li>
+        <a href="/fruits/<%= fruit._id %>"> <%= fruit.name %> </a>
+      </li>
       <% }); %>
     </ul>
   </body>
