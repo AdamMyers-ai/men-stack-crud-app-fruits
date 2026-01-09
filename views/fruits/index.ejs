@@ -7,6 +7,14 @@
   </head>
   <body>
     <h1>All Fruits</h1>
+
+    <% if (allFruits.length === 0) { %>
+    <p>
+      No fruits available. Please add a new fruit on
+      <a href="/fruits/new">New Fruit Page</a>
+    </p>
+    <% } %>
+
     <ul>
       <% allFruits.forEach(fruit => { %>
       <li>
