@@ -1,26 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>All Fruits</title>
-  </head>
-  <body>
-    <h1>All Fruits</h1>
+  <%- include('../partials/head.ejs') %>
 
-    <% if (allFruits.length === 0) { %>
+  <body>
+    <%- include('../partials/navbar.ejs') %>
+
+    <h1>All Fruits</h1>
+    <% if(allFruits.length === 0) { %>
     <p>
       No fruits available. Please add a new fruit on
       <a href="/fruits/new">New Fruit Page</a>
     </p>
     <% } %>
-
     <ul>
-      <% allFruits.forEach(fruit => { %>
+      <% allFruits.map(fruit => { %>
       <li>
         <a href="/fruits/<%= fruit._id %>"> <%= fruit.name %> </a>
       </li>
-      <% }); %>
+      <% }) %>
     </ul>
   </body>
 </html>

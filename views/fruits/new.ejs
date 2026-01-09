@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Create a Fruit</title>
-  </head>
-  <body>
-    <%- include("../partials/navbar.ejs") %>
-    <h1>Create a New Fruit!</h1>
+  <%- include('../partials/head.ejs') %>
 
+  <body>
+    <%- include('../partials/navbar.ejs') %>
+
+    <h1>Create a new Fruit!</h1>
     <form action="/fruits" method="post">
       <label for="name">Name:</label>
       <input type="text" name="name" id="name" />
@@ -16,7 +13,7 @@
       <label for="isReadyToEat">Ready to Eat?</label>
       <input type="checkbox" name="isReadyToEat" id="isReadyToEat" />
 
-      <button type="submit">Add Fruit</button>
+      <button type="submit">Submit</button>
     </form>
   </body>
 </html>
