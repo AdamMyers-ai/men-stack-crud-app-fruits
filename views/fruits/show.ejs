@@ -3,18 +3,27 @@
   <%- include('../partials/head.ejs') %>
   <body>
     <%- include('../partials/navbar.ejs') %>
-    <h1><%= fruit.name %></h1>
-    <% if( fruit.isReadyToEat) { %>
-    <p>This fruit is ready to eat!</p>
-    <% } else { %>
-    <p>This fruit is not ready to eat!</p>
-    <% } %>
-    <a href="/fruits"><button>Go back to All Fruits</button></a>
-    <form action="/fruits/<%= fruit._id %>?_method=DELETE" method="POST">
-      <button type="submit">Delete this Fruit</button>
-    </form>
-    <a href="/fruits/<%= fruit._id %>/edit">
-      <button>Edit the <%= fruit.name %></button>
-    </a>
+    <div class="fruit-details">
+      <h1><%= fruit.name %></h1>
+      <% if( fruit.isReadyToEat) { %>
+      <p>This fruit is ready to eat!</p>
+      <% } else { %>
+      <p>This fruit is not ready to eat!</p>
+      <% } %>
+    </div>
+
+    <div class="fruit-actions">
+      <a href="/fruits"><button>Go back to All Fruits</button></a>
+      <form
+        class="delete-form"
+        action="/fruits/<%= fruit._id %>?_method=DELETE"
+        method="POST"
+      >
+        <button class="delete-button" type="submit">Delete this Fruit</button>
+      </form>
+      <a class="edit-link" href="/fruits/<%= fruit._id %>/edit">
+        <button>Edit the <%= fruit.name %></button>
+      </a>
+    </div>
   </body>
 </html>

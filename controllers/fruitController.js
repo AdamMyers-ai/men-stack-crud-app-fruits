@@ -7,7 +7,7 @@ const router = express.Router(); // allows us to attach all routes in one group
 // Index - GET /fruits - render all the fruits
 router.get("/fruits", async (req, res) => {
   const allFruits = await Fruit.find();
-  res.render("fruits/index.ejs", { allFruits });
+  res.render("fruits/index.ejs", { fruits: allFruits });
 });
 
 // New - GET /fruits/new - render the new fruits form

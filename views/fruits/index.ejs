@@ -5,17 +5,16 @@
   <body>
     <%- include('../partials/navbar.ejs') %>
 
-    <h1>All Fruits</h1>
-    <% if(allFruits.length === 0) { %>
-    <p>
-      No fruits available. Please add a new fruit on
-      <a href="/fruits/new">New Fruit Page</a>
-    </p>
-    <% } %>
+    <div class="index-header-div">
+      <h1>All Fruits</h1>
+      <a class="add-fruit" href="/fruits/new">Add fruit</a>
+    </div>
     <ul>
-      <% allFruits.map(fruit => { %>
+      <% fruits.forEach((fruit)=> { %>
       <li>
-        <a href="/fruits/<%= fruit._id %>"> <%= fruit.name %> </a>
+        <a class="fruit-cards" href="/fruits/<%=fruit._id%>">
+          <%= fruit.name %>
+        </a>
       </li>
       <% }) %>
     </ul>
